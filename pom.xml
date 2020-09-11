@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.adriftus</groupId>
+    <artifactId>Adriftizen</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>Adriftizen.Adriftizen</name>
+    <url>https://github.com/Adriftus-Studios/Adriftizen</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <craftbukkit.version>1.16.2-R0.1-SNAPSHOT</craftbukkit.version>
+        <citizens.version>2.0.27-SNAPSHOT</citizens.version>
+        <denizen.version>1.1.6-SNAPSHOT</denizen.version>
+        <BUILD_NUMBER>Unknown</BUILD_NUMBER>
+    </properties>
+
+    <repositories>
+    <repository>
+        <id>everything</id>
+        <url>https://repo.citizensnpcs.co/</url>
+    </repository>
+    </repositories>
+
+    <dependencies>
+    <dependency>
+        <groupId>org.spigotmc</groupId>
+        <artifactId>spigot-api</artifactId>
+        <type>jar</type>
+        <scope>provided</scope>
+        <version>${craftbukkit.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>com.denizenscript</groupId>
+        <artifactId>denizen</artifactId>
+        <version>${denizen.version}</version>
+        <type>jar</type>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>net.citizensnpcs</groupId>
+        <artifactId>citizens</artifactId>
+        <version>${citizens.version}</version>
+        <type>jar</type>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-all</artifactId>
+        <version>4.1.43.Final</version>
+        <type>jar</type>
+        <scope>provided</scope>
+    </dependency>
+    </dependencies>
+
+    <build>
+    <defaultGoal>clean package install</defaultGoal>
+    <finalName>Adriftizen.Adriftizen</finalName>
+    <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
+    <resources>
+        <resource>
+            <targetPath>.</targetPath>
+            <filtering>true</filtering>
+            <directory>${basedir}/src/main/resources/</directory>
+            <includes>
+                <include>*.yml</include>
+            </includes>
+        </resource>
+    </resources>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.1.0</version>
+            <configuration>
+                <finalName>Depenizen-${project.version}-b${BUILD_NUMBER}</finalName>
+            </configuration>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.0</version>
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+
+
+</project>
